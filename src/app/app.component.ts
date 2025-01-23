@@ -1,16 +1,17 @@
 import {Component, inject, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {CommonModule, NgFor} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NgFor],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
   http = inject(HttpClient);
-  title = 'client';
+  title = 'DatingApp';
   users: any;
 
   ngOnInit() {
