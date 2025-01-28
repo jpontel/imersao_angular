@@ -3,10 +3,26 @@
     <div class="dating-app-logo">
       DatingApp
     </div>
-    <div class="navbar-links">
-      <app-generic-button>Home</app-generic-button>
-      <app-generic-button>About</app-generic-button>
-      <app-generic-button>Contact</app-generic-button>
-    </div>
+    @if (loggedIn) {
+      <div class="navbar-links">
+        <app-generic-button>Matches</app-generic-button>
+        <app-generic-button>Lists</app-generic-button>
+        <app-generic-button>Messages</app-generic-button>
+      </div>
+      <div class="navbar-links">
+        <app-generic-button>Edit Profile</app-generic-button>
+        <app-generic-button>Logout</app-generic-button>
+      </div>
+    } @else {
+      <div class="navbar-links">
+        <app-generic-button>Register</app-generic-button>
+      </div>
+      <form #loginForm="ngForm" (ngSubmit)="login()" class="form-container" autocomplete="off">
+        <input name="username" [(ngModel)]="model.username" class="form-control me-2" placeholder="Username">
+        <input name="password" [(ngModel)]="model.password" class="form-control me-2" placeholder="Password"
+               type="password">
+        <button class="btn btn-outline-success" type="submit">Login</button>
+      </form>
+    }
   </div>
 </div>
