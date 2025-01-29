@@ -3,7 +3,7 @@
   align-content: center;
   text-align: center;
   display: flex;
-  height: 60px;
+  height: 50px;
   background: linear-gradient(to right, #677158, #556142);
   border-bottom: black 1px solid;
 }
@@ -14,12 +14,12 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 10%;
+  gap: 5%;
   text-align: center;
 }
 
 .dating-app-logo {
-  width: 70%;
+  width: 9%;
   height: 100%;
   align-items: center;
   justify-content: end;
@@ -28,19 +28,25 @@
   font-weight: bold;
   font-family: "SF Pro Rounded", sans-serif;
   color: white;
+  cursor: default;
+  --webkit-text-stroke: 2px black;
+}
+
+.dating-app-logo:hover {
+  color: #e5c7ed;
 }
 
 .navbar-links {
-  width: 100%;
+  width: 20%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   gap: 10px;
 }
 
 .form-container {
-  width: 100%;
+  width: 30%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -48,4 +54,10 @@
   gap: 10px;
   padding-right: 10px;
 }
+
+.dropdown-toggle, .dropdown-item {
+  cursor: pointer;
+}
+
+
 

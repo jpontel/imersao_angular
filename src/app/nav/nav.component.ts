@@ -1,5 +1,6 @@
 import {GenericButtonComponent} from '../shared/generic-button/generic-button.component';
 import {AccountService} from '../_services/account.service';
+import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {Component, inject} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
@@ -7,20 +8,19 @@ import {FormsModule} from '@angular/forms';
   selector: 'app-nav',
   imports: [
     GenericButtonComponent,
+    BsDropdownModule,
     FormsModule
   ],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
-  private accountService = inject(AccountService);
-  loggedIn: boolean = false;
+  accountService = inject(AccountService);
   model: any = {};
 
   login() {
     this.accountService.login(this.model).subscribe({
       next: (response) => {
-        this.loggedIn = true;
         console.log('Login Successful', response);
       },
       error: (error) => {
@@ -30,6 +30,8 @@ export class NavComponent {
   };
 
   logout() {
-    this.loggedIn = false;
-  }
+    this.accountService.logout();
+  };
+
+  protected readonly localStorage = localStorage;
 }

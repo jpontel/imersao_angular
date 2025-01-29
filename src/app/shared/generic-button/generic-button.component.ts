@@ -12,4 +12,5 @@ import {NgClass} from '@angular/common';
 export class GenericButtonComponent {
   @Input() buttonClass: string = 'button';
   @Input() disabled: boolean = false;
+  @Input() onClick: () => void = () => {};
 }
